@@ -22,9 +22,9 @@ def as_bootstrap(form):
     template = get_template("bootstrap/form.html")
     form = _preprocess_fields(form)
 
-    c = Context({
+    c = {
         "form": form,
-    })
+    }
     return template.render(c)
 
 
@@ -44,10 +44,10 @@ def as_bootstrap_inline(form):
         "wrap": "",
     }
 
-    c = Context({
+    c = {
         "form": form,
         "css_classes": css_classes,
-    })
+    }
     return template.render(c)
 
 
@@ -81,10 +81,10 @@ def as_bootstrap_horizontal(form, label_classes=""):
             css_classes["single_container"] += offset_class + " " + wrap_class + " "
             css_classes["wrap"] += wrap_class + " "
 
-    c = Context({
+    c = {
         "form": form,
         "css_classes": css_classes,
-    })
+    }
     return template.render(c)
 
 
